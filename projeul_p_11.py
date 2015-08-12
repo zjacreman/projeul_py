@@ -29,9 +29,9 @@ max_product = 0
 # Start in upper left corner, move right then down
 for row_i in range(len(GRID)):
     for col_i in range(len(GRID)): # Assumes a square GRID
-        max_product = max(prod(row_i, col_i, zero, inc), max_product)
-        max_product = max(prod(row_i, col_i, inc, zero), max_product)
-        max_product = max(prod(row_i, col_i, inc, inc), max_product)
-        max_product = max(prod(row_i, col_i, inc, dec), max_product)
+        max_product = max(prod(row_i, col_i, zero, inc), max_product) # Horizontal product, same row
+        max_product = max(prod(row_i, col_i, inc, zero), max_product) # Vertical product, same column
+        max_product = max(prod(row_i, col_i, inc, inc), max_product) # Diagonal product, right+up
+        max_product = max(prod(row_i, col_i, inc, dec), max_product) # Diagonal product, right+down
 
 print(max_product)
